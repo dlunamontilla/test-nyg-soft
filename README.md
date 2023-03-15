@@ -11,12 +11,6 @@ git clone git@github.com:dlunamontilla/test-nyg-soft.git
 Luego, ingrese a `test-nyg-soft` y proceda a instalar las dependencias:
 
 ```bash
-cd test-nyg-soft
-```
-
-Y finalmente, escriba:
-
-```bash
 composer install
 ```
 
