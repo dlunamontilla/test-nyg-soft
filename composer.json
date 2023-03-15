@@ -1,0 +1,20 @@
+{
+    "name": "dlunamontilla/test",
+    "description": "Esta es una prueba técnica",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David E Luna M",
+            "email": "davidlunamontilla@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "dlunamontilla/dltools": "^4.0"
+    }
+}

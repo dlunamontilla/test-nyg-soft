@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Registros de pruebas</title>
+
+    <link rel="stylesheet" href="{{ route('css/style.css') }}">
+
+    <meta http-equiv="Content-Security-Policy"
+    content="script-src 'self' *.tawk.to *.jsdelivr.net *.google.com *.gstatic.com 'nonce-{{ $token }}' ; object-src 'none'">
+
+</head>
+
+<body>
+    <main class="app">
+        <h1>Registro de pruebas</h1>
+        <hr>
+
+        <div class="form-container">
+
+            <form action="{{ route('save/user') }}" method="post" class="form" id="test-form">
+                @csrf
+                
+                <div class="form__inner">
+                    <label for="names" class="form__label">
+                        <span class="form__text">Nombre:</span>
+                        <input type="text" name="name" id="name" class="form__input" placeholder="David E Luna M">
+                    </label>
+
+                    <label for="departament" class="form__label">
+                        <span class="form__text">Departamento:</span>
+
+                        <select name="departament" id="departament">
+                            <option value="-1">Seleccione...</option>
+
+                            @foreach($departaments as $key => $departament)
+                                <option value="{{ $departament['departaments_id'] ?? '' }}">{{ $departament['departaments_name'] }}</option>
+                            @endforeach
+                        </select>
+                    </label>
+
+                    <label for="city" class="form__label">
+                        <select name="city" id="city">
+                        </select>
+                    </label>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Realizar prueba</button>
+                </div>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="results">
+            <h2>Resultados de ejemplo</h2>
+
+            <div id="results" class="results__inner">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Departamento</th>
+                            <th>Ciudad</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbody">
+                        @if(count($users) < 1)
+                            <tr>
+                                <td colspan="2">Sin registros</td>
+                            </tr>
+                        @endif
+
+                        @foreach($users as $key => $user)
+                            <tr>
+                                <td>{{ $user['DEP'] }}</td>
+                                <td>{{ $user['CIU'] }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="{{ route('js/main.js') }}" nonce="{{ $token }}"></script>
+</body>
+
+</html>

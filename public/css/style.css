@@ -1,0 +1,104 @@
+:root {
+
+    font-family: "Open Sans", sans-serif, arial;
+    font-size: 18px;
+
+    background-color: #333333;
+    color: silver;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+main {
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+input, button {
+    height: 40px;
+    font: inherit;
+    padding: 0 10px;
+
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.form {
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.form_label, .form__text {
+    display: block;
+}
+
+.form__text {
+    margin-bottom: 3px;
+}
+.form__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.form__label {
+    display: block;
+    position: relative;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .form__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+.button-container {
+    padding-top: 40px;
+}
+
+select {
+    height: 40px;
+    width: 100%;
+    display: block;
+    padding: 0 10px;
+    font: inherit;
+}
+
+option {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.table th {
+    padding: 15px;
+    background-color: black;
+    color: silver;
+}
+
+.table td {
+    padding: 10px;
+}
+
